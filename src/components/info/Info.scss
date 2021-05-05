@@ -1,0 +1,60 @@
+.info-container {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .info-card {
+    width: 250px;
+    padding: 10px 2rem 10px 2rem;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+
+    .info-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      padding: 5px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .green {
+      background: rgb(161, 245, 182);
+      color: rgb(4, 173, 4);
+    }
+
+    .red {
+      background: rgb(248, 175, 175);
+      color: rgb(252, 26, 26);
+    }
+
+    .yellow {
+      background: rgb(248, 248, 168);
+      color: rgb(248, 248, 29);
+    }
+
+    .blue {
+      background: rgb(173, 198, 250);
+      color: rgb(65, 146, 253);
+    }
+
+    .info-data {
+      margin-left: 2rem;
+      text-align: center;
+      text-transform: capitalize;
+
+      span {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

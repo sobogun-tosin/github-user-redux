@@ -1,0 +1,40 @@
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: rgb(56, 58, 58);
+  margin-top: 10px;
+}
+form {
+  width: 50%;
+  margin-right: 10px;
+  display: flex;
+
+  input {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    border: none;
+    outline: none;
+  }
+
+  button {
+    background: rgb(87, 165, 155);
+    border: none;
+    cursor: pointer;
+    height: max-content;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    transition: all 0.5s linear;
+
+    &:hover {
+      color: #dfdede;
+      background: rgb(62, 99, 94);
+    }
+  }
+}
