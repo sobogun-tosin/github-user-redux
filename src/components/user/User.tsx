@@ -9,28 +9,20 @@ const User = () => {
   const users = useSelector((state: RootStore) => state.github.user);
   const followers = useSelector((state: RootStore) => state.github.follower);
 
-  const {
-    avatar_url,
-    login,
-    name,
-    blog,
-    email,
-    html_url,
-    bio,
-    location,
-  } = users;
-
-  console.log(users);
+  const { avatar_url, login, name, blog, email, html_url, bio, location } =
+    users;
   return (
     <div className="user-container">
       <div className="user-content">
         <div className="user-data">
           User
           <div className="user-header">
-            <img src={avatar_url} alt="User Img" className="img" />
-            <div className="header-data">
-              <h3>{name}</h3>
-              <span>@{login}</span>
+            <div className="header-content">
+              <img src={avatar_url} alt="User Img" className="img" />
+              <div className="header-data">
+                <h3>{name}</h3>
+                <span>@{login}</span>
+              </div>
             </div>
             <Link target="_blank" to={html_url} className="link">
               follow

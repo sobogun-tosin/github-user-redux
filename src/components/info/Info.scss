@@ -4,10 +4,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
 
   .info-card {
-    width: 250px;
+    width: 25%;
     padding: 10px 2rem 10px 2rem;
     margin: 10px;
     display: flex;
@@ -55,6 +54,23 @@
       p {
         margin: 0;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .info-container {
+    flex-wrap: wrap;
+    .info-card {
+      width: 30%;
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  .info-container {
+    justify-content: center;
+    .info-card {
+      width: 70%;
     }
   }
 }

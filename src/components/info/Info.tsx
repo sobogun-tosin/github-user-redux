@@ -46,21 +46,19 @@ const Info = () => {
     },
   ];
   return (
-    <div>
-      <div className="info-container">
-        {items.map((item: Item) => {
-          const { id, icon, value, color, label } = item;
-          return (
-            <div className="info-card" key={id}>
-              <div className={`info-avatar ${color}`}>{icon}</div>
-              <div className="info-data">
-                <span>{value}</span>
-                <p>{label}</p>
-              </div>
+    <div className="info-container">
+      {items.map((item: Item) => {
+        const { id, icon, value, color, label } = item;
+        return (
+          <div className="info-card" key={id}>
+            <div className={`info-avatar ${color}`}>{icon}</div>
+            <div className="info-data">
+              <span>{value}</span>
+              <p>{label}</p>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

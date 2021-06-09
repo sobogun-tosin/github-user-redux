@@ -30,21 +30,25 @@ const Search = () => {
   return (
     <section>
       <div className="error">{error ? error : ""}</div>
-      <i className="fas fa-search" style={{ fontSize: "26px" }}></i>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="search"
-          id=""
-          placeholder="Enter user name"
-          value={search}
-          onChange={(e: React.FormEvent<HTMLInputElement>) =>
-            setSearch(e.currentTarget.value)
-          }
-        />
-        {request > 0 && !loading && <button type="submit">search</button>}
-      </form>
-      <h1>Request: {request} / 60</h1>
+      <div className="search">
+        <div className="search-container">
+          <i className="fas fa-search" style={{ fontSize: "26px" }}></i>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="search"
+              id=""
+              placeholder="Enter user name"
+              value={search}
+              onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                setSearch(e.currentTarget.value)
+              }
+            />
+            {request > 0 && !loading && <button type="submit">search</button>}
+          </form>
+        </div>
+        <h1>Request: {request} / 60</h1>
+      </div>
     </section>
   );
 };

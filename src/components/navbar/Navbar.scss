@@ -1,28 +1,25 @@
 nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: rgb(53, 50, 50);
   font-weight: 700;
-  border-bottom: 2.5px solid #8a8a88;
   font-size: 1.25rem;
 
   .nav-container {
     display: flex;
-    width: 50%;
-    padding: 10px 2rem 10px 2rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: 10px auto;
+
+    .nav-content {
+      display: flex;
+    }
 
     .avatar {
-      background: rgb(252, 99, 99);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      text-transform: uppercase;
-      padding: 2px;
-      margin-right: 10px;
-      align-items: center;
-      display: flex;
-      justify-content: center;
+      img {
+        width: 45px;
+        border-radius: 50%;
+        border: 3px #4384fc solid;
+      }
     }
 
     .userName {
@@ -33,10 +30,24 @@ nav {
         text-transform: uppercase;
       }
     }
+  }
+  .login-btn {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .vl {
+    border-bottom: 2.5px solid #8a8a88;
+  }
+}
 
-    .login-btn {
-      text-decoration: none;
-      color: black;
+@media screen and (max-width: 750px) {
+  nav {
+    font-size: 1.15rem;
+    font-weight: 600;
+    .nav-container {
+      width: 90%;
     }
   }
 }
