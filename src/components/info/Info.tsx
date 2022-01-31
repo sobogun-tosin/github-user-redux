@@ -1,7 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootStore } from "../../redux/store";
-import "./Info.scss";
+import styles from "./Info.module.scss";
+import cx from "classnames";
+import { GetUser } from "../../types";
+import { USER_INFO } from "./data";
 
 interface Item {
   id: number;
@@ -11,48 +12,33 @@ interface Item {
   color: string;
 }
 
-const Info = () => {
-  const user = useSelector((state: RootStore) => state.github.user);
-  const { followers, following, public_gists, public_repos } = user;
+const Info: React.FC<GetUser> = ({
+  followers,
+  following,
+  public_gists,
+  public_repos,
+}) => {
+  const items: Item[] = USER_INFO({
+    followers,
+    following,
+    public_gists,
+    public_repos,
+  });
 
-  const items: Item[] = [
-    {
-      id: 1,
-      icon: <i className="far fa-list-alt"></i>,
-      label: "repos",
-      value: public_repos,
-      color: "red",
-    },
-    {
-      id: 2,
-      icon: <i className="fas fa-users"></i>,
-      label: "followers",
-      value: followers,
-      color: "green",
-    },
-    {
-      id: 3,
-      icon: <i className="fas fa-user-plus"></i>,
-      label: "following",
-      value: following,
-      color: "blue",
-    },
-    {
-      id: 4,
-      icon: <i className="far fa-caret-square-up"></i>,
-      label: "gists",
-      value: public_gists,
-      color: "yellow",
-    },
-  ];
   return (
-    <div className="info-container">
+    <div className={styles.Info}>
       {items.map((item: Item) => {
         const { id, icon, value, color, label } = item;
         return (
-          <div className="info-card" key={id}>
-            <div className={`info-avatar ${color}`}>{icon}</div>
-            <div className="info-data">
+          <div className={styles.Info_card} key={id}>
+            <div
+              className={cx(styles.Info_card_avatar, {
+                [styles[`Info_card_${color}`]]: color,
+              })}
+            >
+              {icon}
+            </div>
+            <div className={styles.Info_card_data}>
               <span>{value}</span>
               <p>{label}</p>
             </div>

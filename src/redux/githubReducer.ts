@@ -11,7 +11,7 @@ import {
   LOGIN,
   REPOS,
   REQUEST,
-} from "./types";
+} from "../types";
 
 interface InitialState {
   loading: boolean;

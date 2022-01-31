@@ -9,46 +9,45 @@ import {
   REQUEST,
   REPOS,
   LOGIN,
-} from "./types";
+} from "../types";
 
 const url = `https://api.github.com`;
 
-export const searchUser = (user: string) => async (
-  dispatch: Dispatch<GithubAction>
-) => {
-  dispatch({ type: ERROR, payload: "" });
-  dispatch({ type: LOADING });
-  try {
-    const res = await axios.get(`${url}/users/${user}`);
-    const dataRes = res.data;
-    const { followers_url, repos_url } = dataRes;
-    const followers = await axios.get(`${followers_url}?per_page=100`);
-    const repos = await axios.get(`${repos_url}?per_page=100`);
+export const searchUser =
+  (user: string) => async (dispatch: Dispatch<GithubAction>) => {
+    dispatch({ type: ERROR, payload: "" });
+    dispatch({ type: LOADING });
+    try {
+      const res = await axios.get(`${url}/users/${user}`);
+      const dataRes = res.data;
+      const { followers_url, repos_url } = dataRes;
+      const followers = await axios.get(`${followers_url}?per_page=100`);
+      const repos = await axios.get(`${repos_url}?per_page=100`);
 
-    if (res) {
-      dispatch({
-        type: GET_USER,
-        payload: dataRes,
-      });
-      dispatch({
-        type: FOLLOWER,
-        payload: followers.data,
-      });
-      dispatch({
-        type: REPOS,
-        payload: repos.data,
-      });
+      if (res) {
+        dispatch({
+          type: GET_USER,
+          payload: dataRes,
+        });
+        dispatch({
+          type: FOLLOWER,
+          payload: followers.data,
+        });
+        dispatch({
+          type: REPOS,
+          payload: repos.data,
+        });
+      }
+    } catch (err) {
+      setTimeout(() => {
+        dispatch({
+          type: ERROR,
+          payload: "Username does not exist, please enter a valid username ",
+        });
+      }, 3000);
+      console.log(err);
     }
-  } catch (err) {
-    setTimeout(() => {
-      dispatch({
-        type: ERROR,
-        payload: "Username does not exist, please enter a valid username ",
-      });
-    }, 3000);
-    console.log(err);
-  }
-};
+  };
 
 export const LoginUser = () => (dispatch: Dispatch<GithubAction>) => {
   dispatch({
@@ -82,7 +81,8 @@ export const dailyRequest = () => async (dispatch: Dispatch<GithubAction>) => {
   } catch (err) {
     dispatch({
       type: ERROR,
-      payload: err,
+      payload: "Sorry you have exceeded your daily search limit",
     });
+    console.log(err);
   }
 };

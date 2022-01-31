@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { dailyRequest, searchUser } from "../../redux/githubAction";
 import { RootStore } from "../../redux/store";
-import "./Search.scss";
+import styles from "./Search.module.scss";
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -23,31 +23,31 @@ const Search = () => {
     dispatch(dailyRequest());
   });
 
-  // useEffect(() => {
-  //   dispatch(searchUser("sobogun-tosin"));
-  // }, []);
-
   return (
     <section>
       <div className="error">{error ? error : ""}</div>
-      <div className="search">
-        <div className="search-container">
-          <i className="fas fa-search" style={{ fontSize: "26px" }}></i>
-          <form onSubmit={handleSubmit}>
+      <div className={styles.Search}>
+        <div className={styles.Search_container}>
+          <i className="fas fa-search" style={{ fontSize: "24px" }}></i>
+          <form>
             <input
               type="text"
               name="search"
               id=""
-              placeholder="Enter user name"
+              placeholder="...enter user name"
               value={search}
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
                 setSearch(e.currentTarget.value)
               }
             />
-            {request > 0 && !loading && <button type="submit">search</button>}
           </form>
+          {request > 0 && !loading && (
+            <button type="button" onClick={handleSubmit}>
+              search
+            </button>
+          )}
         </div>
-        <h1>Request: {request} / 60</h1>
+        <div className={styles.Search_request}>Request: {request} / 60</div>
       </div>
     </section>
   );

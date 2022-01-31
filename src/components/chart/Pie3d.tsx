@@ -25,9 +25,9 @@ const Pie3d = (data: any) => {
   };
 
   return (
-    <div className="pie">
+    <>
       <RFC {...chartConfigs} />
-    </div>
+    </>
   );
 };
 

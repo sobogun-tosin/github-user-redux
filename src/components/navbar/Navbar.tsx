@@ -1,33 +1,33 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Logout } from "../../redux/githubAction";
-import { RootStore } from "../../redux/store";
-import "./Navbar.scss";
+import { GetUser } from "../../types";
+import styles from "./Navbar.module.scss";
 
-const Navbar = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state: RootStore) => state.github.user);
+interface NavProps {
+  user: GetUser;
+  logout: () => void;
+}
+
+const Navbar: React.FC<NavProps> = ({ user, logout }) => {
+  const { avatar_url, name } = user;
   return (
-    <nav>
-      <div className="nav-container">
-        <div className="nav-content">
-          <div className="avatar">
-            <img src={user.avatar_url} alt="" />
-          </div>
-          <h4 className="userName">
-            Welcome, <span>{user.name}</span>
+    <nav className={styles.Nav}>
+      <div className={styles.Nav_container}>
+        <div className={styles.Nav_container_content}>
+          <img src={avatar_url} alt="" />
+          <h4 className={styles.Nav_container_content_user}>
+            Welcome, <span>{name}</span>
           </h4>
         </div>
         <Link
           to="/login"
-          className="login-btn"
-          onClick={() => dispatch(Logout())}
+          className={styles.Nav_container_login}
+          onClick={logout}
         >
           Logout
         </Link>
       </div>
-      <div className="vl"></div>
+      <div className={styles.Nav_vl}></div>
     </nav>
   );
 };
