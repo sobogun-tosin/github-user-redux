@@ -1,0 +1,119 @@
+.User {
+  border-bottom: 3px dashed rgba(66, 64, 64, 0.2);
+
+  &_container {
+    width: 70%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    &_info {
+      border-radius: 6px;
+      margin: 10px;
+      padding: 20px;
+      height: 300px;
+      background: #ffffff;
+
+      &_header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+        &_content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #5c5959;
+          }
+
+          &_data {
+            margin-left: 5px;
+            h3 {
+              font-size: 1.5rem;
+              font-family: "Times New Roman", Times, serif;
+              font-weight: 700;
+              margin: 0;
+            }
+            span {
+              color: rgb(46, 46, 46);
+              font-size: 1.2rem;
+            }
+          }
+
+          &_link {
+            border-radius: 16px;
+            border: 2px solid rgb(87, 165, 155);
+            color: rgb(39, 37, 37);
+            padding: 10px 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: capitalize;
+            height: max-content;
+            transition: all 0.3s linear;
+
+            &:hover {
+              background: rgb(87, 165, 155);
+              color: white;
+            }
+          }
+        }
+      }
+
+      &_body {
+        color: rgb(87, 85, 85);
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        h4 {
+          margin: 0;
+        }
+      }
+    }
+
+    &_follower {
+      &_body {
+        height: 100%;
+        overflow: auto;
+
+        &_content {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+
+          img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #5c5959;
+          }
+
+          &_link {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #000;
+
+            h3 {
+              margin: 0;
+            }
+            span {
+              color: rgb(98, 172, 241);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,30 +1,35 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { RootStore } from "../../redux/store";
-import { Follower } from "../../redux/types";
-import "./User.scss";
+import { Follower, GetUser } from "../../types";
+import styles from "./User.module.scss";
 
-const User = () => {
-  const users = useSelector((state: RootStore) => state.github.user);
-  const followers = useSelector((state: RootStore) => state.github.follower);
+interface UsersProps {
+  users: GetUser;
+  followers: Follower[];
+}
 
+const User: React.FC<UsersProps> = ({ users, followers }) => {
   const { avatar_url, login, name, blog, email, html_url, bio, location } =
     users;
+
   return (
-    <div className="user-container">
-      <div className="user-content">
-        <div className="user-data">
+    <div className={styles.User}>
+      <div className={styles.User_container}>
+        <div className={styles.User_container_info}>
           User
-          <div className="user-header">
-            <div className="header-content">
-              <img src={avatar_url} alt="User Img" className="img" />
-              <div className="header-data">
+          <div className={styles.User_container_info_header}>
+            <div className={styles.User_container_info_header_content}>
+              <img src={avatar_url} alt="User Img" />
+              <div className={styles.User_container_info_header_content_data}>
                 <h3>{name}</h3>
                 <span>@{login}</span>
               </div>
             </div>
-            <Link target="_blank" to={html_url} className="link">
+            <Link
+              target="_blank"
+              to={html_url}
+              className={styles.User_container_info_header_content_link}
+            >
               follow
             </Link>
           </div>
@@ -47,18 +52,26 @@ const User = () => {
             </h4>
           </div>
         </div>
-        <div className="user-follower">
+        <div className={styles.User_container_info}>
           Followers
-          <div className="follower-body">
-            {followers.map((follower: Follower, index: number) => {
+          <div className={styles.User_container_follower_body}>
+            {followers.map((follower: Follower, index) => {
               const { avatar_url, html_url, login } = follower;
               return (
-                <div className="follower-content" key={index}>
-                  <img src={avatar_url} alt="img" className="img" />
-                  <Link target="_blank" to={html_url} className="follower-data">
+                <div
+                  className={styles.User_container_follower_body_content}
+                  key={index}
+                >
+                  <img src={avatar_url} alt="img" />
+                  <a
+                    href={html_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.User_container_follower_body_content_link}
+                  >
                     <h3>{login}</h3>
-                    <span>{html_url}</span>
-                  </Link>
+                    <span>follow</span>
+                  </a>
                 </div>
               );
             })}

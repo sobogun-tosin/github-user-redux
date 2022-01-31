@@ -1,44 +1,45 @@
-nav {
+.Nav {
   color: rgb(53, 50, 50);
   font-weight: 700;
   font-size: 1.25rem;
 
-  .nav-container {
+  &_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 70%;
     margin: 10px auto;
 
-    .nav-content {
+    &_content {
       display: flex;
-    }
+      align-items: center;
 
-    .avatar {
       img {
         width: 45px;
+        height: 45px;
         border-radius: 50%;
         border: 3px #4384fc solid;
+        margin-right: 10px;
+      }
+
+      &_user {
+        margin: 0;
+
+        span {
+          text-transform: uppercase;
+        }
       }
     }
 
-    .userName {
-      padding: 10px;
-      margin: 0;
-
-      span {
-        text-transform: uppercase;
-      }
+    &_login {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      text-transform: uppercase;
     }
   }
-  .login-btn {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-    text-transform: uppercase;
-  }
-  .vl {
-    border-bottom: 2.5px solid #8a8a88;
+  &_vl {
+    border-bottom: 2.5px solid #bbbbbb;
   }
 }
 

@@ -1,0 +1,10 @@
+.Chart {
+  width: 70%;
+  margin: 10px auto;
+
+  &_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 20px;
+  }
+}

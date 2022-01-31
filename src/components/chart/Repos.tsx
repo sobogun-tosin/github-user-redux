@@ -1,8 +1,8 @@
 import React from "react";
-import "./Chart.scss";
+import styles from "./Chart.module.scss";
 import { useSelector } from "react-redux";
 import { RootStore } from "../../redux/store";
-import { GetRepos } from "../../redux/types";
+import { GetRepos } from "../../types";
 import Area from "./Area";
 import Column from "./Column";
 import Doughnut from "./Doughnut";
@@ -56,8 +56,8 @@ const Repos = () => {
   fork = Object.values(fork).slice(-5).reverse();
 
   return (
-    <div className="container">
-      <div className="chart">
+    <div className={styles.Chart}>
+      <div className={styles.Chart_container}>
         <Pie3d data={mostUsed} />
         <Area data={star} />
         <Doughnut data={mostPopular} />

@@ -1,0 +1,50 @@
+.Search {
+  width: 70%;
+  color: rgb(56, 58, 58);
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-items: center;
+  grid-gap: 20px;
+
+  &_container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+
+    form {
+      width: 100%;
+      input {
+        font-size: 1.25rem;
+        padding: 10px;
+        margin-right: 3px;
+        border: none;
+        outline: none;
+      }
+    }
+
+    button {
+      background: rgb(87, 165, 155);
+      border: none;
+      cursor: pointer;
+      height: max-content;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 1.25rem;
+      text-transform: capitalize;
+      transition: all 0.3s linear;
+
+      &:hover {
+        background: rgb(117, 196, 188);
+      }
+    }
+  }
+
+  &_request {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+}

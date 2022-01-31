@@ -26,9 +26,9 @@ const Doughnut = (data: any) => {
   };
 
   return (
-    <div className="pie">
+    <>
       <RFC {...chartConfigs} />
-    </div>
+    </>
   );
 };
 

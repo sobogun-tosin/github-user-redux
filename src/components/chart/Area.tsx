@@ -26,9 +26,9 @@ const Area = (data: any) => {
   };
 
   return (
-    <div className="area">
+    <>
       <RFC {...chartConfigs} />
-    </div>
+    </>
   );
 };
 

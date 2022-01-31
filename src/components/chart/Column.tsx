@@ -28,9 +28,9 @@ const Column = (data: any) => {
   };
 
   return (
-    <div className="area">
+    <>
       <RFC {...chartConfigs} />
-    </div>
+    </>
   );
 };
 
